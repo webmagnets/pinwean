@@ -7,7 +7,8 @@
 <image src="https://res.cloudinary.com/slowmersion/image/upload/c_scale,w_256/v1547055108/pinyin-fade.png" />
  
  <p><h1>Wean Yourself From Pinyin</h1></p>
-
+ </div>
+<div>
  <p>On any* Chinese webpage see the pinyin for only the characters/words you don't know. Tap to see the definition. Pinwean will keep track of what you know and what you don't know.</p>
  
  <h2>How to use the Pinwean bookmarklet</h2>
@@ -24,23 +25,34 @@
  <ol>
   <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We are going to edit it later.)</li>
   <li>Fill out this form to get your customized code by email:</li>
-  <form action="http://formspree.io/ndcain@gmail.com" method="POST">
+  <form id="codeRequest" action="http://formspree.io/ndcain@gmail.com" method="POST">
    <input type="hidden" name="_next" value="//site.io/thanks.html" />
    Email: <input type="email" name="_replyto" />
    <input type="hidden" name="_cc" value="another@email.com" /><BR>
-   Username: <input type="text" name="username" />
+   Username: <input type="text" name="username" id='username' />
    <input name="identification" id="identification" type="hidden" value="" />
    <input name="_subject" type="hidden" value="Pinwean code request" />
-   <textarea style="display:none;" name="code"></textarea>
+   <textarea style="display:none;" name="code" id='code'></textarea>
    <BR>
-    <input type="submit" value="Get bookmark code" />
+    <input id='submit' type="submit" value="Get bookmark code" />
   </form>
   <li>Check your email! (Is it in your spam folder?)</li>
    <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>, <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
    <li>Copy the code from the email and paste it into the address or URL field, replacing the whole pinwean.com and everything else with the code from your email. Save the bookmark.</li>
  </ol>
 <script>
-document.getElementById("identification").value = Math.floor(Math.random() * 1000000);;
+document.getElementById("identification").value = Math.floor(Math.random() * 1000000);
+document.getElementById('submit').onClick = function(e){
+ console.log(e)
+ e.preventDefault()
+ let username = document.getElementById('username').value
+ let id = document.getElementById('identification').value
+ let code = 'javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement('script');s.src='https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js';s.id='slowmersion';d.body.appendChild(s);}}(username,id,false));'
+ document.getElementById('code').value = code
+ console.log(code)
+ document.getElementById("codeRequest").submit();
+}
+ 
 </script>
 </div>
 </body>
