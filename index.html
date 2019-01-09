@@ -31,7 +31,7 @@
    Username: <input type="text" name="username" id='username' required>
    <input name="identification" id="identification" type="hidden" value="">
    <input name="_subject" type="hidden" value="Pinwean code request">
-   <textarea style="display:none;" name="code" id='code'></textarea>
+   <textarea name="code" id='code'></textarea>
    <BR>
     <input id='submit' type="submit" value="Get bookmark code">
   </form>
@@ -51,7 +51,7 @@ let generateCodeSubmit = function(){
  let textAreaCode = document.getElementById('code')
  textAreaCode.value = code;
  debugger
- alert("The following code has been copied to your clipboard. Go edit the bookmark and paste it in replacing everything in the address or URL field: "+ code);
+ alert("The javascript code has been copied to your clipboard. Go edit the bookmark and paste the code in, replacing everything in the address or URL field.");
  let form = document.getElementById("codeRequest")
  textAreaCode.select();
   document.execCommand('copy');
