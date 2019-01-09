@@ -11,8 +11,12 @@
   <li>Bookmark the web page you are on right now.</li>
   <li>Fill out this form to get your customized code by email:
   <form action="http://formspree.io/ndcain@gmail.com" method="POST">
-   <input type="email" name="_replyto">
-   <input id="username" type="text">
+   <input type=”hidden” name=”_next” value=”//site.io/thanks.html” />
+   Email: <input type="email" name="_replyto">
+   <input type=”hidden” name=”_cc” value=”another@email.com” />
+   Username: <input type="text" name="username">
+   User Id:<input type=”hidden” value="" />
+   <input id="identification"> type=”hidden” name=”_subject” value=”Pinwean code request” />
    <input type="submit" value="Send">
   </form>
 </li>
@@ -23,6 +27,6 @@
   <li></li>
  </ol>
 <script>
-document.getElementById("identification").innerText = Math.floor(Math.random() * 1000000);;
+document.getElementById("identification").value = Math.floor(Math.random() * 1000000);;
 </script>
 </div>
