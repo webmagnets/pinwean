@@ -21,14 +21,14 @@
   <li>Note: If you want to follow a link, please click on the word "(link)" beside the original link. This allows you to click on the original link to see the pinyin or definition.</li>
  </ol>
   
- <h3>How to install the Pinwean <a href="https://www.howtogeek.com/189358/beginner-geek-how-to-use-bookmarklets-on-any-device/">bookmarklet</a></h3>
+ <h3>How to install the Pinwean <a target="_blank" href="https://www.howtogeek.com/189358/beginner-geek-how-to-use-bookmarklets-on-any-device/">bookmarklet</a></h3>
  <ol>
   <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We are going to edit it later.)</li>
   <li>Fill out this form to get your customized code by email:</li>
   <form id="codeRequest" action="https://formspree.io/ndcain@gmail.com" method="POST">
-   <input type="hidden" name="_next" value="//site.io/thanks.html" />
-   Email: <input type="email" name="_replyto" />
-   <input type="hidden" name="_cc" value="another@email.com" /><BR>
+   <input type="hidden" name="_next" value="https://Pinwean.com#Thanks" />
+   Email: <input type="email" name="_replyto" id='email' />
+   <input type="hidden" id='cc' name="_cc" value="" /><BR>
    Username: <input type="text" name="username" id='username' />
    <input name="identification" id="identification" type="hidden" value="" />
    <input name="_subject" type="hidden" value="Pinwean code request" />
@@ -43,13 +43,15 @@
 <script>
 document.getElementById("identification").value = Math.floor(Math.random() * 1000000);
 document.getElementById('submit').onClick = function(e){
- console.log(e)
- e.preventDefault()
- let username = document.getElementById('username').value
- let id = document.getElementById('identification').value
- let code = 'javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement('script');s.src='https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js';s.id='slowmersion';d.body.appendChild(s);}}(username,id,false));'
- document.getElementById('code').value = code
- console.log(code)
+ console.log(e);
+ e.preventDefault();
+ let username = document.getElementById('username').value;
+ let id = document.getElementById('identification').value;
+ let email = document.getElementById('email').value;
+ document.getElementById('cc').value = email;
+ let code = `javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement('script');s.src='https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js';s.id='slowmersion';d.body.appendChild(s);}}(username,id,false));`;
+ document.getElementById('code').value = code;
+ console.log(code);
  document.getElementById("codeRequest").submit();
 }
  
