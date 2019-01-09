@@ -12,18 +12,16 @@
   <li>Fill out this form to get your customized code by email:</li>
   <form action="http://formspree.io/ndcain@gmail.com" method="POST">
    <input type="hidden" name="_next" value="//site.io/thanks.html" />
-   Email: <input type="email" name="_replyto">
+   Email: <input type="email" name="_replyto" />
    <input type="hidden" name="_cc" value="another@email.com" />
-   Username: <input type="text" name="username">
+   Username: <input type="text" name="username" />
    User Id:<input type="hidden" value="" />
-   <input id="identification"> type="hidden" name="_subject" value="Pinwean code request" />
-   <input type="submit" value="Send">
+   <input name="identification" id="identification" type="hidden" />
+   <input name="_subject" value="Pinwean code request" />
+   <input type="submit" value="Send" />
   </form>
-  <li>This is your id: <span id="identification"></span> Please save it just in case you ever lose your bookmarklet.</li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Check your email! (Is it in your spam folder?)</li>
+  <li>Follow the instructions in your email to complete the setup. Only 2 more steps.</li>
  </ol>
 <script>
 document.getElementById("identification").value = Math.floor(Math.random() * 1000000);;
