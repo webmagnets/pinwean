@@ -1,14 +1,9 @@
-<head>
-    <meta name="referrer" content="origin">
-</head>
-
 <body>
     <div style="text-align:center;">
         <link rel="stylesheet" href="/assets/css/style.css?v=804fb9bdb945fb8ad5027f94f1509e2a592f3bde">
         <image src="https://res.cloudinary.com/slowmersion/image/upload/c_scale,w_256/v1547055108/pinyin-fade.png" />
-
         <p>
-            <h1>Wean Yourself From Pinyin</h1>
+            <h1>Gently Wean Yourself From Pinyin</h1>
         </p>
     </div>
     <div>
@@ -18,11 +13,11 @@
 
         <p><a href="#install">Install</a></p>
 
-        <h2>How to use the Pinwean bookmarklet</h2>
+        <h2 id="use">How to use the Pinwean bookmarklet</h2>
         <ol>
             <li>Go to any webpage written in Chinese.</li>
-            <li>If you want to convert the whole page then just click the Pinwean bookmark and wait.</li>
-            <li>If you want to only convert a portion of the page, select the Chinese text you want to convert and then
+            <li>If you want to read the whole page then just click the Pinwean bookmark and wait.</li>
+            <li>If you want to only read a portion of the page, select the Chinese text you want to convert and then
                 click the Pinwean bookmark and wait.</li>
             <li>When the conversion is finished you just start reading. If you don't know a character/word then just
                 click to see the pinyin. If you still don't know the word after revealing the pinyin, then click it
@@ -36,24 +31,22 @@
         <ol>
             <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We
                 are going to edit it later.)</li>
-            <li>Fill out this form to get your customized code by email:</li>
+            <li>Fill out this form to get your customized javascript code:</li>
             <form id="codeRequest" onsubmit="generateCodeSubmit()">
-                Email: <input type="email" name="_replyto" id='email' required>
-                <input type="hidden" id='cc' name="_cc" value=""><BR>
-                Username: <input type="text" name="username" id='username' required>
-                <input name="identification" id="identification" type="hidden" value="">
-                <input name="_subject" type="hidden" value="Pinwean code request">
+                Email: <input type="email" id='email' required>
+                <BR>
+                Username: <input type="text" id='username' required>
                 <BR>Code will appear here: <textarea name="code" id='code'></textarea>
                 <BR>
                 <input id='submit' type="submit" value="Get bookmark code">
             </form>
-
             <li>If you see code in the box above it has already been copied to your clipboard.</li>
-            <li>
             <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>,
                 <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
-            <li>Paste it into the address or URL field, replacing the whole pinwean.com and everything else with the
+            <li>Paste the javascript code into the address or URL field, replacing the whole pinwean.com and everything
+                else with the
                 code from your email. Save the bookmark.</li>
+            <li><a href="use">Use it to read Chinese</a></li>
         </ol>
 
     </div>
