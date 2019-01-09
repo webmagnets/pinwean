@@ -11,6 +11,26 @@
 <div>
  <p>On any* Chinese webpage see the pinyin for only the characters/words you don't know. Tap to see the definition. Pinwean will keep track of what you know and what you don't know.</p>
  
+  <h3>How to install the Pinwean <a target="_blank" href="https://www.howtogeek.com/189358/beginner-geek-how-to-use-bookmarklets-on-any-device/">bookmarklet</a></h3>
+ <ol>
+  <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We are going to edit it later.)</li>
+  <li>Fill out this form to get your customized code by email:</li>
+  <form id="codeRequest" onsubmit="generateCodeSubmit()" action="https://formspree.io/ndcain@gmail.com" method="POST">
+   <input type="hidden" name="_next" value="https://Pinwean.com#Thanks">
+   Email: <input type="email" name="_replyto" id='email' required>
+   <input type="hidden" id='cc' name="_cc" value=""><BR>
+   Username: <input type="text" name="username" id='username' required>
+   <input name="identification" id="identification" type="hidden" value="">
+   <input name="_subject" type="hidden" value="Pinwean code request">
+   <textarea style="display:none;" name="code" id='code'></textarea>
+   <BR>
+    <input id='submit' type="submit" value="Get bookmark code">
+  </form>
+  <li>Check your email! (Is it in your spam folder?)</li>
+   <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>, <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
+   <li>Copy the code from the email and paste it into the address or URL field, replacing the whole pinwean.com and everything else with the code from your email. Save the bookmark.</li>
+ </ol>
+   
  <h2>How to use the Pinwean bookmarklet</h2>
  <ol>
   <li>Go to any webpage written in Chinese.</li>
@@ -20,41 +40,20 @@
   <li>You should read Chinese everyday to increase your vocabulary and assimilate the grammar.</li>
   <li>Note: If you want to follow a link, please click on the word "(link)" beside the original link. This allows you to click on the original link to see the pinyin or definition.</li>
  </ol>
-  
- <h3>How to install the Pinwean <a target="_blank" href="https://www.howtogeek.com/189358/beginner-geek-how-to-use-bookmarklets-on-any-device/">bookmarklet</a></h3>
- <ol>
-  <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We are going to edit it later.)</li>
-  <li>Fill out this form to get your customized code by email:</li>
-  <form id="codeRequest" action="https://formspree.io/ndcain@gmail.com" method="POST">
-   <input type="hidden" name="_next" value="https://Pinwean.com#Thanks" />
-   Email: <input type="email" name="_replyto" id='email' />
-   <input type="hidden" id='cc' name="_cc" value="" /><BR>
-   Username: <input type="text" name="username" id='username' />
-   <input name="identification" id="identification" type="hidden" value="" />
-   <input name="_subject" type="hidden" value="Pinwean code request" />
-   <textarea style="display:none;" name="code" id='code'></textarea>
-   <BR>
-    <button id='submit' type="submit">Get bookmark code</button>
-  </form>
-  <li>Check your email! (Is it in your spam folder?)</li>
-   <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>, <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
-   <li>Copy the code from the email and paste it into the address or URL field, replacing the whole pinwean.com and everything else with the code from your email. Save the bookmark.</li>
- </ol>
+
+</div>
 <script>
 document.getElementById("identification").value = Math.floor(Math.random() * 1000000);
-document.getElementById('submit').onClick = function(e){
- console.log(e);
- e.preventDefault();
+let generateCodeSubmit = function(e){
+ alert(e);
  let username = document.getElementById('username').value;
  let id = document.getElementById('identification').value;
  let email = document.getElementById('email').value;
  document.getElementById('cc').value = email;
- let code = `javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement('script');s.src='https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js';s.id='slowmersion';d.body.appendChild(s);}}(username,id,false));`;
+ let code = `javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement('script');s.src='https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js';s.id='slowmersion';d.body.appendChild(s);}}("`+username+`","`+id+`",false));`;
  document.getElementById('code').value = code;
- console.log(code);
+ alert(code);
  document.getElementById("codeRequest").submit();
 }
- 
 </script>
-</div>
 </body>
