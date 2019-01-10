@@ -53,7 +53,7 @@
 
     </div>
     <script>
-        document.getElementById("identification").value = Math.floor(Math.random() * 1000000);
+        //document.getElementById("identification").value = Math.floor(Math.random() * 1000000);
         let generateCodeSubmit = function () {
             let username = document.getElementById('username').value;
             let id = document.getElementById('identification').value;
@@ -64,7 +64,7 @@
                 username + `","` + email + `",`+ alwaysShowPinyin +`));`;
             let textAreaCode = document.getElementById('code')
             textAreaCode.value = code;
-            debugger
+            //debugger
             alert(
                 "The javascript code has been copied to your clipboard. Go edit the bookmark and paste the code in, replacing everything in the address or URL field."
             );
