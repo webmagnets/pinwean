@@ -80,6 +80,7 @@ form {
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let alwaysShowPinyin = document.getElementById('alwaysShowPinyin').checked
+            debugger
             if (username !== "" && email !== ""){
             let code =
                 'javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement("script");s.src="https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js";s.id="slowmersion";d.body.appendChild(s);}}("' +
