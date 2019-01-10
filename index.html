@@ -32,16 +32,12 @@
             <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We
                 are going to edit it later.)</li>
             <li>Fill out this form to get your customized javascript code:</li>
-            <form id="codeRequest" onsubmit="generateCodeSubmit()" action="">
-                Email: <input type="email" id='email' required>
-                <BR>
-                Username: <input type="text" id='username' required>
-                <BR>Code will appear here:<BR><textarea id='code'></textarea>
-                <BR>
-                <input type="checkbox" id="alwaysShowPinyin"> I want to always see the pinyin. Don't gradually remove it as I learn more words.
-                <BR>
-                <input id='submit' type="submit" value="Get bookmark code">
-            </form>
+            
+            <li>Email: <input type="email" id='email' required></li>
+            <li>Username: <input type="text" id='username' required></li>
+            <li>Code will appear here:<BR><textarea id='code'></textarea></li>
+            <li><input type="checkbox" id="alwaysShowPinyin"> I want to always see the pinyin. Don't gradually remove it as I learn more words.</li>
+            <li><button id='submit' onClick="generateCodeSubmit()">Get bookmark code</button></li>
             <li>If you see code in the box above it has already been copied to your clipboard.</li>
             <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>,
                 <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
