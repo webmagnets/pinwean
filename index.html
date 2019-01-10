@@ -1,3 +1,6 @@
+<head>
+<script src="jquery-3.3.1.min.js"></script>
+</head>
 <body>
     <div style="text-align:center;">
         <link rel="stylesheet" href="/assets/css/style.css?v=804fb9bdb945fb8ad5027f94f1509e2a592f3bde">
@@ -49,7 +52,7 @@
 
     </div>
     <script>
-        let generateCodeSubmit = function () {
+        $(document).on('click','#submit',function(){
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let alwaysShowPinyin = document.getElementById('alwaysShowPinyin').checked
@@ -64,8 +67,7 @@
             );
             let form = document.getElementById("codeRequest")
             textAreaCode.select();
-            document.execCommand('copy');
-            return false
+            document.execCommand('copy');   
         }
     </script>
 </body>
