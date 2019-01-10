@@ -32,11 +32,11 @@
             <li>Bookmark the web page you are on right now. (Best to save the bookmark somewhere it is easy to find. We
                 are going to edit it later.)</li>
             <li>Fill out this form to get your customized javascript code:</li>
-            <form id="codeRequest" onsubmit="generateCodeSubmit()">
+            <form id="codeRequest" onsubmit="generateCodeSubmit()" action="">
                 Email: <input type="email" id='email' required>
                 <BR>
                 Username: <input type="text" id='username' required>
-                <BR>Code will appear here: <textarea name="code" id='code'></textarea>
+                <BR>Code will appear here:<BR><textarea id='code'></textarea>
                 <BR>
                 <input type="checkbox" id="alwaysShowPinyin"> I want to always see the pinyin. Don't gradually remove it as I learn more words.
                 <BR>
@@ -48,12 +48,11 @@
             <li>Paste the javascript code into the address or URL field, replacing the whole pinwean.com and everything
                 else with the
                 code from your email. Save the bookmark.</li>
-            <li><a href="#use">Use it to read Chinese</a></li>
+            <li><a href="#use">Use it to read Chinese</a>. Here is a good website to try. <a target="_blank" href="https://www.jw.org/cmn-hans/">JW.org</a></li>
         </ol>
 
     </div>
     <script>
-        //document.getElementById("identification").value = Math.floor(Math.random() * 1000000);
         let generateCodeSubmit = function () {
             let username = document.getElementById('username').value;
             let id = document.getElementById('identification').value;
