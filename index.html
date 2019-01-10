@@ -9,7 +9,7 @@
     <div>
         <p>On any Chinese webpage see the pinyin for only the characters/words you don't know. Tap to see the
             definition. Pinwean will keep track of what you know and what you don't know.</p>
-        <p>Works on PC, MacOS, iOS, Android, etc.</p>
+        <p>Works on PC, MacOS, iOS, Android, etc. All browsers.</p>
 
         <p><a href="#install">Install</a></p>
 
@@ -38,6 +38,8 @@
                 Username: <input type="text" id='username' required>
                 <BR>Code will appear here: <textarea name="code" id='code'></textarea>
                 <BR>
+                <input type="checkbox" id="alwaysShowPinyin"> I want to always see the pinyin. Don't gradually remove it as I learn more words.
+                <BR>
                 <input id='submit' type="submit" value="Get bookmark code">
             </form>
             <li>If you see code in the box above it has already been copied to your clipboard.</li>
@@ -46,7 +48,7 @@
             <li>Paste the javascript code into the address or URL field, replacing the whole pinwean.com and everything
                 else with the
                 code from your email. Save the bookmark.</li>
-            <li><a href="use">Use it to read Chinese</a></li>
+            <li><a href="#use">Use it to read Chinese</a></li>
         </ol>
 
     </div>
@@ -56,9 +58,10 @@
             let username = document.getElementById('username').value;
             let id = document.getElementById('identification').value;
             let email = document.getElementById('email').value;
+            let alwaysShowPinyin = document.getElementById('alwaysShowPinyin').checked
             let code =
                 `javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement('script');s.src='https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js';s.id='slowmersion';d.body.appendChild(s);}}("` +
-                username + `","` + email + `",false));`;
+                username + `","` + email + `",`+ alwaysShowPinyin +`));`;
             let textAreaCode = document.getElementById('code')
             textAreaCode.value = code;
             debugger
