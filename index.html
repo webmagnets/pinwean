@@ -1,5 +1,6 @@
 <head>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <meta name="referrer" content="origin">
 </head>
 <body>
     <div style="text-align:center;">
@@ -14,7 +15,7 @@
             definition. Pinwean will keep track of what you know and what you don't know.</p>
         <p>Works on PC, MacOS, iOS, Android, etc. All browsers.</p>
 
-        <p><a href="#install">Install</a></p>
+        <p><a href="#install">Install</a> | <a href="#contact">Contact</a></p>
 
         <h2 id="use">How to use the Pinwean bookmarklet</h2>
         <ol>
@@ -51,6 +52,13 @@
         </ol>
 
     </div>
+<div id="contact" style="text-align:center;">
+<form method="POST" action="https://formspree.io/ndcain@gmail.com">
+  <input type="email" name="email" placeholder="Your email">
+  <textarea name="message" placeholder="Your message"></textarea>
+  <button type="submit">Send</button>
+</form>
+</div>
     <script>
         $(document).on('click','#submit',function(){
             let username = document.getElementById('username').value;
