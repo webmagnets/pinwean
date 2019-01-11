@@ -10,6 +10,7 @@
 </script>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <meta name="referrer" content="origin">
     <link rel="shortcut icon" href="https://res.cloudinary.com/slowmersion/image/upload/v1547146138/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://res.cloudinary.com/slowmersion/image/upload/v1547146138/favicon.ico" type="image/x-icon">
@@ -72,7 +73,7 @@ form {
             <li>Username: <input type="text" id='username' required></li>
             <li>Code will appear here:<BR><textarea id='code'></textarea></li>
             <li><input type="checkbox" id="alwaysShowPinyin"> Warning: Only check this box if you want to always see the pinyin and not gradually remove the pinyin as you learn more words.</li>
-            <li><button id='submit'>Get bookmark code</button></li>
+            <li><button id='submit' data-clipboard-text="">Get bookmark code</button></li>
             <li>If you see code in the box above it has already been copied to your clipboard.</li>
             <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>,
                 <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
@@ -101,12 +102,14 @@ form {
             let code =
                 'javascript:(function(un,pw,py,u,i){smpinyin=py;smusername=un;smpassword=pw;var d=document;if(!d.getElementById(i)){var s=d.createElement("script");s.src="https://dl.dropboxusercontent.com/s/6g09dguwgfdr1oq/slowmersion.js";s.id="slowmersion";d.body.appendChild(s);}}("' +
                 username + '","' + email + '",'+ alwaysShowPinyin +'));';
-            let textAreaCode = document.getElementById('code')
-            textAreaCode.value = code;
+            //let textAreaCode = document.getElementById('code')
+            //textAreaCode.value = code;
             //debugger
-            let form = document.getElementById("codeRequest")
-            textAreaCode.select();
-            document.execCommand('copy');
+            //let form = document.getElementById("codeRequest")
+            //textAreaCode.select();
+            //document.execCommand('copy');
+            $('#submit').attr('data-clipboard-text',code)
+            $('#submit').text('Click to copy')
             alert(
                 "Ok, the javascript code has been copied to your clipboard. Go edit the bookmark and paste the code in, replacing everything in the address or URL field."
             );   
