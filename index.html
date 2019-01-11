@@ -52,8 +52,8 @@ form {
         <h2 id="use">How to use the Pinwean bookmarklet</h2>
         <ol>
             <li>Go to any webpage written in Chinese.</li>
-            <li>If you want to read the whole page then just click the Pinwean bookmark and wait.</li>
-            <li>If you want to only read a portion of the page, select the Chinese text you want to convert and then
+            <li>Click the Pinwean bookmark and wait. Unless...</li>
+            <li>...if you want to only read a portion of the page, select the Chinese text you want to convert and then
                 click the Pinwean bookmark and wait.</li>
             <li>When the conversion is finished you just start reading. If you don't know a character/word then just
                 click to see the pinyin. If you still don't know the word after revealing the pinyin, then click it
@@ -71,10 +71,11 @@ form {
             
             <li>Email: <input type="email" id='email' required></li>
             <li>Username: <input type="text" id='username' required></li>
-            <li>Code will appear here:<BR><textarea id='code'></textarea></li>
+            <!-- <li>Code will appear here:<BR><textarea id='code'></textarea></li> -->
             <li><input type="checkbox" id="alwaysShowPinyin"> Warning: Only check this box if you want to always see the pinyin and not gradually remove the pinyin as you learn more words.</li>
-            <li><button class='btn' id='submit' data-clipboard-text="">Get bookmark code</button></li>
-            <li>If you see code in the box above it has already been copied to your clipboard.</li>
+            <li><button class='btn' id='submit'>Generate bookmark code</button></li>
+            <!-- <li>If you see code in the box above it has already been copied to your clipboard.</li> -->
+            <li><button class='btn' id='copy' data-clipboard-text="" disabled> Copy to clipboard</li>
             <li>Now, find the bookmark you saved and edit it. (Here's how to edit a bookmark in <a href="https://support.google.com/chrome/answer/188842">Chrome</a>,
                 <a href="https://itstillworks.com/manage-safari-bookmarks-iphone-16680.html">Safari</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-firefox">Firefox</a></li>
             <li>Paste the javascript code into the address or URL field, replacing the whole pinwean.com and everything
@@ -109,8 +110,8 @@ form {
             //let form = document.getElementById("codeRequest")
             //textAreaCode.select();
             //document.execCommand('copy');
-            $('#submit').attr('data-clipboard-text',code)
-            $('#submit').text('Click to copy').attr('id','copy')
+            $('#copy').attr('data-clipboard-text',code).prop('disabled',false).css('color','#green')
+            //$('#submit').text('Click to copy').attr('id','copy')
             alert(
                 "Ok, the javascript code has been copied to your clipboard. Go edit the bookmark and paste the code in, replacing everything in the address or URL field."
             );   
