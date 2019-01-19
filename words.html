@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+  <style type="text/css">
+   
+  </style>
+  </head>
+  <body>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+   function autorun()
+   {
+   function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+username = getUrlParameter('username'); // "1234"
+userId = getUrlParameter('id'); // "email"
+    jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username=" + username + "&userId=" + userId, function (data, status) {
+					if (status) {
+						// console.log(wordWithNoDefinition, 'mymemory status:', status);
+					} 
+					if (data) {
+						// console.log(wordWithNoDefinition, 'mymemory result:', data); //Prints the response of the request.
+						definition = data.responseData.translatedText
+						// console.log(wordWithNoDefinition, 'mymemory definition', definition)
+						let definitionJSON = {
+							"translation": definition
+						}
+						jQuery('ruby[data-word=' + wordWithNoDefinition + ']').attr('data-definitions', encodeURI(JSON.stringify(definitionJSON)))
+					}
+				})
+   }
+   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+   else window.onload = autorun;
+  </script>
+  </body>
+</html>
