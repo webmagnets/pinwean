@@ -26,7 +26,7 @@ var username = getUrlParameter('username'); // "1234"
 var userId = getUrlParameter('userId'); // "edit"
    function autorun()
    {
-    jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username=webmagnets&userId=faboo123', function (data, status) {
+    jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username='+username+'&userId='+userId, function (data, status) {
     if (status) {
         console.log('status', status)
     }
