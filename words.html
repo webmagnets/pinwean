@@ -33,7 +33,7 @@ var userId = getUrlParameter('userId'); // "edit"
         console.log('status', status)
     }
     if (data) {
-        console.log('data', data)
+       // console.log('data', data)
         data.forEach(word => {
             $('body').append('<p>'+word.word+' ' + word.pinyin + '</p>')
         });
