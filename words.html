@@ -27,6 +27,7 @@
 
 var username = getUrlParameter('username'); // "1234"
 var userId = getUrlParameter('userId'); // "edit"
+     console.log(username,userId)
     jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username='+username+'&userId='+userId, function (data, status) {
     if (status) {
         console.log('status', status)
