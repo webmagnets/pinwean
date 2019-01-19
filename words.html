@@ -27,13 +27,16 @@ var userId = getUrlParameter('userId'); // "edit"
    function autorun()
    {
     jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username=webmagnets&userId=faboo123', function (data, status) {
-					if (status) {
-          console.log('status',status)
-					}
-					if (data) {
-						console.log('data',data)
-					}
-				})
+    if (status) {
+        console.log('status', status)
+    }
+    if (data) {
+        console.log('data', data)
+        data.array.forEach(word => {
+            $('body').append('<p>'+word.word+' ' + word.pinyin + '</p>')
+        });
+    }
+})
    }
    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
    else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
