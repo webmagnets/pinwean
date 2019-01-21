@@ -34,7 +34,7 @@ var userId = getUrlParameter('userId'); // "edit"
     }
     if (data) {
        console.log('data', data)
-        data.def.forEach(def => {
+        data.forEach(def => {
           console.log('def',def)
             def.forEach(word => {
               console.log('word',word)
