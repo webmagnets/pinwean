@@ -51,7 +51,7 @@
                             console.log('word.def', word.def)
                             if (word && word.def) {
 				    let definitions
-				    if (word.def.traditional){
+				    if (word.def[0].traditional){
 					definitions = word.def	    
 				    } else {
                                 	definitions = JSON.parse(word.def)
