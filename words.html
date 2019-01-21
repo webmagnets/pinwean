@@ -21,6 +21,10 @@
     <script type="text/javascript">
         function markAsKnown() {
             console.log('this',this)
+            let word = this.dataset.word
+            jQuery.post("https://us-central1-slowmersion.cloudfunctions.net/markAsKnown?username=" + smusername + "&password=" + smuserId + "&word=" + word, function (data, status) {
+				 console.log(status, data)
+			});
         }
         function autorun() {
             function getUrlParameter(name) {
@@ -30,11 +34,11 @@
                 return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
             };
 
-            var username = getUrlParameter('username'); // "1234"
-            var userId = getUrlParameter('userId'); // "edit"
+            smusername = getUrlParameter('username'); // "1234"
+            smuserId = getUrlParameter('userId'); // "edit"
             console.log(username, userId)
-            jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username=' + username + '&userId=' +
-                userId,
+            jQuery.get('https://us-central1-slowmersion.cloudfunctions.net/words?username=' + smusername + '&userId=' +
+                smuserId,
                 function (data, status) {
                     if (status) {
                         console.log('status', status)
