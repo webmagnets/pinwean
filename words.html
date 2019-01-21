@@ -58,8 +58,8 @@
 					}
                                 definitions.forEach(word => {
                                     console.log('word', word)
-                                    $('body').append('<p><div style="float: left;">' + word.simplified + ' ' + word.pinyin +
-                                        ' | ' + word.definition + '</div><div style="float: right;"><button onClick="markAsKnown.call(this)" data-word=' + word.simplified + ' data-pinyin=' + word.pinyin + ' class="markAsKnown">mark as known</button></div></p>')
+                                    $('body').append('<div style="float: left;">' + word.simplified + ' ' + word.pinyin +
+                                        ' | ' + word.definition + '</div><div style="float: right;"><button onClick="markAsKnown.call(this)" data-word=' + word.simplified + ' data-pinyin=' + word.pinyin + ' class="markAsKnown">mark as known</button></div>')
                                 });
                             } else {
                                 $('body').append('<p>' + word.word + ' ' + word.pinyin + '</p>')
