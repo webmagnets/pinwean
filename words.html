@@ -78,15 +78,12 @@ tr:nth-child(even) {
                                 
                                 definitions.forEach(word => {
                                     console.log('word', word)
-                                    $('body').append('<tr>')
-                                    $('body').append('<td>' + word.simplified + '</td>')
-                                    $('body').append('<td>' + word.pinyin.replace(' ','&nbsp;') + '</td>')
-                                    $('body').append('<td>' + definitions.find(x => x.pinyin === word.pinyin).definition + '</td>')
-                                    $('body').append(
-                                        '<td><button onClick="markAsKnown.call(this)" data-word=' +
+                                    $('body').append('<tr><td>' + word.simplified + '</td>')
+                                        .append('<td>' + word.pinyin.replace(' ','&nbsp;') + '</td>')
+                                        .append('<td>' + definitions.find(x => x.pinyin === word.pinyin).definition + '</td>')
+                                        .append('<td><button onClick="markAsKnown.call(this)" data-word=' +
                                         word.simplified + ' data-pinyin=' + word.pinyin +
-                                        ' class="markAsKnown">mark as known</button></td>')
-                                    $('body').append('</tr>')
+                                        ' class="markAsKnown">mark as known</button></td></tr>')
                                 });
                             }
                         });
