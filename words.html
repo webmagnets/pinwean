@@ -34,8 +34,12 @@ var userId = getUrlParameter('userId'); // "edit"
     }
     if (data) {
        // console.log('data', data)
-        data.forEach(word => {
-            $('body').append('<p>'+word.word+' ' + word.pinyin +' '+ word.def +'</p>')
+        data.def.forEach(def => {
+          console.log('def',def)
+            def.forEach(word => {
+              console.log('word',word)
+            $('body').append('<p>' + word.simplified + ' ' + word.pinyin + ' ' + word.definition + '</p>')
+        });
         });
     }
 })
