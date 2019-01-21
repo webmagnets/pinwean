@@ -48,7 +48,7 @@
                                 JSON.parse(word.def).forEach(word => {
                                     console.log('word', word)
                                     $('body').append('<p>' + word.simplified + ' ' + word.pinyin +
-                                        ' | ' + word.definition + ' <button onClick="markAsKnown.call(this)" data-word=' + word.simplfied + ' data-pinyin=' + data.pinyin + ' class="markAsKnown">mark as known</button></p>')
+                                        ' | ' + word.definition + ' <button onClick="markAsKnown.call(this)" data-word=' + word.simplified + ' data-pinyin=' + word.pinyin + ' class="markAsKnown">mark as known</button></p>')
                                 });
                             } else {
                                 $('body').append('<p>' + word.word + ' ' + word.pinyin + '</p>')
