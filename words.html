@@ -81,7 +81,7 @@ tr:nth-child(even) {
                                     $('body').append('<tr>')
                                     $('body').append('<td>' + word.simplified + '</td>')
                                     $('body').append('<td>' + word.pinyin + '</td>')
-                                    $('body').append('<td>' + definitions[0].definition + '</td>')
+                                    $('body').append('<td>' + definitions.find(x => x.pinyin === word.pinyin).definition + '</td>')
                                     $('body').append(
                                         '<td><button onClick="markAsKnown.call(this)" data-word=' +
                                         word.simplified + ' data-pinyin=' + word.pinyin +
