@@ -36,7 +36,7 @@ var userId = getUrlParameter('userId'); // "edit"
        console.log('data', data)
         data.forEach(word => {
           console.log('word.def',word.def)
-            word.def.forEach(word => {
+            JSON.parse(word.def).forEach(word => {
               console.log('word',word)
             $('body').append('<p>' + word.simplified + ' ' + word.pinyin + ' ' + word.definition + '</p>')
         });
