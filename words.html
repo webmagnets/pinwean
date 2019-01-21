@@ -63,26 +63,17 @@ tr:nth-child(even) {
                         console.log('status', status)
                     }
                     if (data) {
-                        $('body').append('<table>')
-                        $('body').append('<tr>')
-                        $('body').append('<th>simplified</th>')
-                        $('body').append('<th>pinyin</th>')
-                        $('body').append('<th>definition</th>')
-                        $('body').append('<th>action</th>')
-                        $('body').append('</tr>')
+                        $('body').append('<table id="myTable">')
+                        $('#myTable').append('<tr><th>simplified</th><th>pinyin</th><th>definition</th><th>action</th></tr>')
                         console.log('data', data)
                         data.forEach(word => {
                             console.log('word.def', word.def)
                             if (word && word.def) {
                                 let definitions = JSON.parse(word.def)
-                                
                                 definitions.forEach(word => {
                                     console.log('word', word)
-                                    $('body').append('<tr><td>' + word.simplified + '</td>')
-                                        .append('<td>' + word.pinyin.replace(' ','&nbsp;') + '</td>')
-                                        .append('<td>' + definitions.find(x => x.pinyin === word.pinyin).definition + '</td>')
-                                        .append('<td><button onClick="markAsKnown.call(this)" data-word=' +
-                                        word.simplified + ' data-pinyin=' + word.pinyin +
+                                    $('#myTable tr:last').append('<tr><td>' + word.simplified + '</td><td>' + word.pinyin.replace(' ','&nbsp;') + '</td><td>' + definitions.find(x => x.pinyin === word.pinyin).definition + '</td><td><button onClick="markAsKnown.call(this)" data-word=' 
+                                                                 + word.simplified + ' data-pinyin=' + word.pinyin +
                                         ' class="markAsKnown">mark as known</button></td></tr>')
                                 });
                             }
