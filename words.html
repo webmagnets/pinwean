@@ -50,7 +50,12 @@
                         data.forEach(word => {
                             console.log('word.def', word.def)
                             if (word && word.def) {
-                                let definitions = JSON.parse(word.def)
+				    let definitions
+				    if (word.def.traditional){
+					definitions = word.def	    
+				    } else {
+                                	definitions = JSON.parse(word.def)
+					}
                                 JSON.parse(word.def).forEach(word => {
                                     console.log('word', word)
                                     $('body').append('<p>' + word.simplified + ' ' + word.pinyin +
