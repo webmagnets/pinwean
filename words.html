@@ -74,18 +74,14 @@ tr:nth-child(even) {
                         data.forEach(word => {
                             console.log('word.def', word.def)
                             if (word && word.def) {
-                                let definitions
-                                if (word.def[0].traditional) {
-                                    definitions = word.def
-                                } else {
-                                    definitions = JSON.parse(word.def)
-                                }
+                                let definitions = JSON.parse(word.def)
+                                
                                 definitions.forEach(word => {
                                     console.log('word', word)
                                     $('body').append('<tr>')
                                     $('body').append('<td>' + word.simplified + '</td>')
                                     $('body').append('<td>' + word.pinyin + '</td>')
-                                    $('body').append('<td>' + definitions + '</td>')
+                                    $('body').append('<td>' + JSON.stringify(definitions) + '</td>')
                                     $('body').append(
                                         '<td><button onClick="markAsKnown.call(this)" data-word=' +
                                         word.simplified + ' data-pinyin=' + word.pinyin +
