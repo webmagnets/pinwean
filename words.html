@@ -25,7 +25,7 @@
             jQuery.post("https://us-central1-slowmersion.cloudfunctions.net/markAsKnown?username=" + smusername + "&password=" + smuserId + "&word=" + word, function (data, status) {
 				 console.log(status, data)
 			});
-		console.log('hiding',$(this).parents('p')
+		console.log('hiding',$(this).parents('p'))
 		jQuery(this).parents('p').hide()
         }
         function autorun() {
