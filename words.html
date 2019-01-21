@@ -46,6 +46,13 @@
                         console.log('status', status)
                     }
                     if (data) {
+			    $('body').append('<table>')
+			    $('body').append('<tr>')
+			    $('body').append('<th>simplified</th>')
+			    $('body').append('<th>pinyin</th>')
+			    $('body').append('<th>definition</th>')
+			    $('body').append('<th>action</th>')
+			    $('body').append('</tr>')
                         console.log('data', data)
                         data.forEach(word => {
                             console.log('word.def', word.def)
@@ -58,13 +65,14 @@
 					}
                                 definitions.forEach(word => {
                                     console.log('word', word)
-                                    $('body').append('<p><div style="float: left;">' + word.simplified + ' <strong>' + word.pinyin +
-                                        '</strong> | ' + word.definition + '</div><div style="float: right;"><button onClick="markAsKnown.call(this)" data-word=' + word.simplified + ' data-pinyin=' + word.pinyin + ' class="markAsKnown">mark as known</button></div></p>')
+					$('body').append('<tr>')
+			    $('body').append('<td>'+word.simplified+'</td>')
+			    $('body').append('<td>'+word.pinyin+'</td>')
+			    $('body').append('<td>'+word.def+'</td>')
+			    $('body').append('<td><button onClick="markAsKnown.call(this)" data-word=' + word.simplified + ' data-pinyin=' + word.pinyin + ' class="markAsKnown">mark as known</button></td>')
+			    $('body').append('</tr>')
                                 });
-                            } else {
-                                $('body').append('<p><div style="float: left;">' + word.word + ' <strong>' + word.pinyin + '</strong></div><div style="float: right;"><button disabled>no def</button></div></p>')
                             }
-
                         });
                     }
                 })
